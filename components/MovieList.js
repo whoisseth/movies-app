@@ -91,15 +91,10 @@ const Comment = () => {
 }
 
 export const FavouriteIcon = () => {
-  const [like, setLike] = useState(false)
   return (
-    <div onClick={() => setLike(true)}>
-      <IconContainer>
-        <MdOutlineFavorite
-          className={`text-white text-xl   ${like && ' text-red-400'}`}
-        />
-      </IconContainer>
-    </div>
+    <IconContainer>
+      <MdOutlineFavorite className={`text-white text-xl  `} />
+    </IconContainer>
   )
 }
 export const DelFavouriteIcon = () => {
