@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import MovieList from '../components/MovieList'
 import { SearchBox } from '../components/SerchBox'
 import { DelFavouriteIcon } from '../components/MovieList'
-import { FavouriteIcon } from './../components/MovieList';
+import { FavouriteIcon } from './../components/MovieList'
+
 const Home = () => {
   const [movies, setMovies] = useState([])
   const [searchValue, setSearchValue] = useState('batman')
