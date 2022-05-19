@@ -4,6 +4,7 @@ import { AiFillDelete } from 'react-icons/ai'
 import MovieContainer from './MovieContainer'
 import Rating from '@mui/material/Rating'
 import { useState } from 'react'
+import Link from 'next/link'
 export default function MovieList({
   movies,
   handleFavouritesClick,
@@ -11,16 +12,20 @@ export default function MovieList({
 }) {
   return (
     <MovieContainer>
-      {movies.map((movie, i) => (
+      {movies.map((movie, index) => (
         <div
-          key={i}
+          key={index}
           className="text-white w-[308px] rounded overflow-hidden h-auto  shadow-xl my-4 hover:-mt-2 transition-all z-index-50 hover:shadow-2xl"
         >
-          <img
-            src={movie.Poster}
-            alt={movie.Poster && 'this Movies has no img'}
-            className="relative object-cover  w-full h-[308px] bg-slate-400 "
-          />
+          <Link href={movie.imdbID}>
+            <a>
+              <img
+                src={movie.Poster}
+                alt={movie.Poster && 'this Movies has no img'}
+                className="relative object-cover  w-full h-[308px] bg-slate-400 "
+              />
+            </a>
+          </Link>
           <div className="my-4 px-4 flex gap-2 flex-col ">
             <div className=" text-black text-xl mb-2 ">{movie.Title}</div>
             <div className="flex w-full justify-between items-center">
@@ -78,14 +83,6 @@ const Comment = () => {
         onChange={(e) => setText(e.target.value)}
         placeholder="What do you think about his film ?"
       />
-      {/* <div
-        className={`font-medium  absolute  right-8 px-5 bg-green-400 rounded py-1  ${
-          text.length > 0 ? 'opacity-100 cursor-pointer' : 'opacity-70'
-        }`}
-        // onClick={postFun}
-      >
-        Save
-      </div> */}
     </div>
   )
 }
